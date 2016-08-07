@@ -1,0 +1,20 @@
+<h1>Entire database of important articles.</h1>
+<p>
+	<%= link_to "Click to create new article", new_article_path %> 
+</p>
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+	</tr>
+
+	<% @allarticles.each do |articlez| %>
+	<tr>
+		<td><%= articlez.title %></td>
+		<td><%= articlez.description %></td>
+		<td><%= link_to "Edit aritcle!", edit_article_path(articlez) %></td>
+		<td><%= link_to "Show article!", article_path(articlez) %></td>
+		<td><%= link_to "Delete article!", article_path(articlez), method: :delete, data: {confirm: "Are you sure??!"} %></td>
+	</tr>
+	<% end %>
+</table>
